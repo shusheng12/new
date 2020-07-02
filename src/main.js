@@ -6,7 +6,12 @@ import store from "./store";
 Vue.config.productionTip = false;
 
 //重置样式
-import "@/assets/css/normalize.css";
+//import "@/assets/css/normalize.css";
+
+// vant
+import Vant from "vant";
+import "vant/lib/index.css";
+Vue.use(Vant);
 
 new Vue({
   router,
