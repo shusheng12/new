@@ -1,9 +1,7 @@
 <template>
   <div class="page-container">
-    <van-nav-bar title="登录" fixed left-arrow @click-left="onClickLeft"></van-nav-bar>
+    <van-nav-bar title="登录" fixed></van-nav-bar>
     <div style="height: 46px"></div>
-    <!-- <img class="logo" :src="$appInfo.logo">
-    <p class="tx-14 black ta-c m-t-10">{{$appInfo.name}}</p>-->
     <div class="input">
       <span class="tx-14 light-grey">手机号</span>
       <input class="tx-14" type="text" placeholder="请输入手机号" v-model="username" />
@@ -17,8 +15,7 @@
         class="tx-14 fl"
         @click="
           $router.push({
-            name: 'signup',
-            query: { inviteCode: $route.query.inviteCode }
+            name: 'signup'
           })
         "
       >注册</span>
@@ -34,6 +31,10 @@ export default {
       username: "",
       password: ""
     };
+  },
+  methods: {
+    //登录
+    login() {}
   }
 };
 </script>
@@ -65,7 +66,6 @@ export default {
   input {
     border: none;
     height: 2rem;
-    //margin-bottom: 0.5rem;
     &:focus {
       outline: none;
     }

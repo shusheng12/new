@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 
 const signin = () => import("../views/user/signin");
 const forget = () => import("../views/user/forget");
-
+const signup = () => import("../views/user/signup");
 const Home = () => import("@/views/Home/Home");
 
 const routes = [
@@ -13,6 +13,11 @@ const routes = [
     path: "/",
     name: "signin",
     component: signin
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: signup
   },
   {
     path: "/forget",

@@ -2,45 +2,21 @@
   <div class="page-container">
     <van-nav-bar title="登录" fixed left-arrow @click-left="onClickLeft"></van-nav-bar>
     <div style="height: 46px"></div>
-    <div class="input" v-if="!hidePhone">
+    <div class="input">
       <span class="tx-14 light-grey">手机号</span>
-      <input
-        class="tx-14"
-        type="text"
-        placeholder="请输入手机号"
-        v-model="phone"
-        maxlength="11"
-        @keyup.native="acceptNumber('phone')"
-      />
+      <input class="tx-14" type="text" placeholder="请输入手机号" v-model="phone" maxlength="11" />
     </div>
     <div class="input">
       <span class="tx-14 light-grey">验证码</span>
-      <input
-        class="tx-14"
-        type="text"
-        placeholder="请输入右方内容"
-        v-model="captcha"
-        maxlength="4"
-        @keyup="acceptNumber('captcha')"
-      />
-      qrerqef
+      <input class="tx-14" type="text" placeholder="请输入右方内容" v-model="captcha" maxlength="4" />
+      <span class="tx-14 fr light-grey">11111112</span>
     </div>
     <div class="input">
       <span class="tx-14 light-grey">短信验证码</span>
-      <input
-        class="tx-14"
-        type="text"
-        placeholder="请输入短信验证码"
-        v-model="smscode"
-        maxlength="6"
-        @keyup="acceptNumber('smscode')"
-      />
+      <input class="tx-14" type="text" placeholder="请输入短信验证码" v-model="smscode" maxlength="6" />
       <span class="tx-14 fr p-l-15 bdr-l" @click="sendSms">
         获取验证码
-        <span v-show="SMSdisabled">
-          (
-          <timer ref="timer" @timerStopped="SMSdisabled = false"></timer>)
-        </span>
+        <span v-show="SMSdisabled"></span>
       </span>
     </div>
     <div class="input">
@@ -54,6 +30,30 @@
     <div class="forget" @click="formSubmit()">确定</div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      phone: "",
+      captcha: "",
+      smscode: "",
+      password: "",
+      password2: "",
+      SMSdisabled: 0
+    };
+  },
+  methods: {
+    //go(-1)
+    onClickLeft() {
+      this.$router.go(-1);
+    },
+    //提交
+    formSubmit() {},
+    // 获取验证码
+    sendSms() {}
+  }
+};
+</script>
 
 <style lang="less" scoped>
 @import "~@/assets/css/style.less";
