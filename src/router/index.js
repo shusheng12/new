@@ -7,10 +7,12 @@ const signin = () => import("../views/user/signin");
 const forget = () => import("../views/user/forget");
 const signup = () => import("../views/user/signup");
 const Home = () => import("@/views/Home/Home");
+const Search = () => import("@/views/Home/Search");
 
 const routes = [
+  { path: "/", redirect: { name: "Home" } },
   {
-    path: "/",
+    path: "/signin",
     name: "signin",
     component: signin
   },
@@ -28,6 +30,11 @@ const routes = [
     path: "/home",
     name: "Home",
     component: Home
+  },
+  {
+    path: "/Search",
+    name: "Search",
+    component: Search
   }
 ];
 
