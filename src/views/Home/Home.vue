@@ -57,16 +57,63 @@
       </div>
     </div>
 
+    <!-- 热门消息 -->
     <div class="hot_news">
       <div class="key">最新消息</div>
       <div class="value">
         <van-swipe style="height: 3rem" vertical :autoplay="3000" :show-indicators="false">
-          <van-swipe-item>知识改变命运知识改变命运</van-swipe-item>
-          <van-swipe-item>知识改变命运知识改变命运</van-swipe-item>
-          <van-swipe-item>知识改变命运知识改变命运</van-swipe-item>
-          <van-swipe-item>知识改变命运知识改变命运</van-swipe-item>
+          <van-swipe-item>
+            <span>热点</span> 知识改变命运知识改变命运
+          </van-swipe-item>
+          <van-swipe-item>
+            <span>热点</span>知识改变命运知识改变命运
+          </van-swipe-item>
+          <van-swipe-item>
+            <span>热点</span>知识改变命运知识改变命运
+          </van-swipe-item>
+          <van-swipe-item>
+            <span>热点</span>知识改变命运知识改变命运
+          </van-swipe-item>
         </van-swipe>
       </div>
+    </div>
+
+    <!-- 消息 -->
+    <div v-for="i of 3" :key="i">
+      <div class="news">
+        <p>知识改变命运知识改变命运</p>
+        <div class="news_item">
+          <div>
+            <img src="@/assets/img/zly1.jpg" alt />
+          </div>
+        </div>
+      </div>
+      <div class="news">
+        <p>知识改变命运知识改变命运</p>
+        <div class="news_item1">
+          <div v-for="l of 3" :key="l">
+            <img src="@/assets/img/zly1.jpg" alt />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 视频 -->
+    <div class="video">
+      <div class="title">
+        精彩小视频
+        <van-icon name="arrow" />
+      </div>
+      <div class="mt_join_content">
+        <div class="join_list">
+          <div class="myJoin_img" v-for="item in 8" :key="item">
+            <img src="@/assets/img/zly5.jpg" alt />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>我也是有底线的~~</div>
     </div>
   </div>
 </template>
@@ -244,6 +291,101 @@ export default {
   }
   .value {
     .tx-14;
+    span {
+      display: inline-block;
+      .tx-12;
+      color: #fff;
+      padding: 0.2rem;
+      height: 0.6rem;
+      border-radius: 0.3rem;
+      line-height: 0.6rem;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      background: linear-gradient(
+        134deg,
+        rgba(122, 176, 249, 1) 0%,
+        rgba(35, 138, 240, 1) 100%
+      );
+    }
   }
+}
+
+// 消息
+.news {
+  background-color: #fff;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
+  p {
+    padding: 1rem 1rem 0.5rem;
+  }
+  .news_item {
+    overflow: hidden;
+    border-radius: 0.5rem;
+
+    margin: 0 1rem;
+    display: flex;
+    div {
+      flex: 1;
+      img {
+        width: 100%;
+        flex: 1;
+        box-sizing: border-box;
+      }
+    }
+  }
+  .news_item1 {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    div {
+      width: 31%;
+      img {
+        width: 100%;
+        flex: 1;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+.video {
+  padding-bottom: 1rem;
+  margin-bottom: 0.2rem;
+  background: white;
+  .title {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    .van-icon {
+      vertical-align: middle;
+      margin-top: -0.2rem;
+    }
+  }
+  .mt_join_content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    overflow: scroll;
+    .join_list {
+      display: flex;
+      padding-right: 1rem;
+      .myJoin_img {
+        width: 6.5rem;
+        overflow: hidden;
+        padding-left: 1rem;
+        img {
+          border-radius: 0.4rem;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+.footer {
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  color: #aaaaaa;
 }
 </style>
