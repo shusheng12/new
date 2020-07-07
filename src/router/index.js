@@ -8,6 +8,7 @@ const forget = () => import("../views/user/forget");
 const signup = () => import("../views/user/signup");
 const Home = () => import("@/views/Home/Home");
 const Search = () => import("@/views/Home/Search");
+const newsDetail = () => import("@/views/Home/newsDetail");
 
 const routes = [
   { path: "/", redirect: { name: "Home" } },
@@ -35,6 +36,11 @@ const routes = [
     path: "/Search",
     name: "Search",
     component: Search
+  },
+  {
+    path: "/newsDetail",
+    name: "newsDetail",
+    component: newsDetail
   }
 ];
 

@@ -7,23 +7,21 @@
       </div>
       <div class="hd_body">
         <van-icon name="search" />
-        <input type="text" @focus="onSearch" placeholder="请输入搜索内容" v-model="keyword" />
+        <input type="text" @focus="onSearch" placeholder="请输入搜索内容" />
       </div>
     </div>
+    <div style="height: 49px"></div>
+
     <!-- nav导航· -->
     <div class="top_nav">
       <div class="list">
         <div>
-          <span>首页</span>
-          <span>推荐</span>
-          <span>体育</span>
-          <span>娱乐</span>
-          <span>生活</span>
-          <span>购物</span>
-          <span>财经</span>
-          <span>旅游</span>
-          <span>游戏</span>
-          <span>影视</span>
+          <span
+            :class="{ nav_ative: ative == index }"
+            v-for="(item, index) of nav_list"
+            :key="index"
+            @click="at_index(index)"
+          >{{ item }}</span>
         </div>
       </div>
       <div class="btn">
@@ -62,17 +60,17 @@
       <div class="key">最新消息</div>
       <div class="value">
         <van-swipe style="height: 3rem" vertical :autoplay="3000" :show-indicators="false">
-          <van-swipe-item>
-            <span>热点</span> 知识改变命运知识改变命运
+          <van-swipe-item @click="$router.push('newsDetail')">
+            <span>热点</span>蔡徐坤花式打篮球
           </van-swipe-item>
-          <van-swipe-item>
-            <span>热点</span>知识改变命运知识改变命运
+          <van-swipe-item @click="$router.push('newsDetail')">
+            <span>热点</span>罗志祥是怎样成为时间管理大师的
           </van-swipe-item>
-          <van-swipe-item>
-            <span>热点</span>知识改变命运知识改变命运
+          <van-swipe-item @click="$router.push('newsDetail')">
+            <span>热点</span>我从来没碰过钱，我对钱不感兴趣
           </van-swipe-item>
-          <van-swipe-item>
-            <span>热点</span>知识改变命运知识改变命运
+          <van-swipe-item @click="$router.push('newsDetail')">
+            <span>热点</span>没有什么是解决不了的，有的话一起爬山吧
           </van-swipe-item>
         </van-swipe>
       </div>
@@ -123,18 +121,36 @@ export default {
   name: "Home",
   data() {
     return {
+      // 头部导航
+      nav_list: [
+        "首页",
+        "推荐",
+        "体育",
+        "娱乐",
+        "生活",
+        "购物",
+        "财经",
+        "旅游",
+        "游戏",
+        "影视"
+      ],
+      // 轮播图
       imgUrl: [
         require("@/assets/img/zly1.jpg"),
         require("@/assets/img/zly2.jpg"),
         require("@/assets/img/zly3.jpg"),
         require("@/assets/img/zly4.jpg")
       ],
-      keyword: ""
+      ative: 0
     };
   },
   methods: {
+    // 点击搜索框
     onSearch() {
       this.$router.push("/Search");
+    },
+    at_index(index) {
+      this.ative = index;
     }
   }
 };
@@ -142,21 +158,21 @@ export default {
 
 <style lang="less" scoped>
 @import "~@/assets/css/style.less";
+
+// 页面
 .wamp {
   background-color: #fafafa;
 }
-
-// .my-swipe .van-swipe-item {
-//   color: #fff;
-//   font-size: 20px;
-//   line-height: 150px;
-//   text-align: center;
-//   background-color: #39a9ed;
-// }
-
+// 活跃nav
+.nav_ative {
+  color: @red;
+}
 // 头部
 .wamp .head {
+  position: fixed;
   display: flex;
+  width: 100%;
+  z-index: 1;
   background-color: @red;
   .hd_left {
     width: 10%;
@@ -233,7 +249,7 @@ export default {
   width: 100%;
 }
 
-// icon
+// icon图标导航
 .icon {
   height: 5rem;
   display: flex;
@@ -291,6 +307,13 @@ export default {
   }
   .value {
     .tx-14;
+    flex: 1;
+    width: 5rem;
+    .van-swipe-item {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
     span {
       display: inline-block;
       .tx-12;
@@ -301,6 +324,7 @@ export default {
       line-height: 0.6rem;
       margin-right: 0.5rem;
       vertical-align: middle;
+      margin-top: -0.2rem;
       background: linear-gradient(
         134deg,
         rgba(122, 176, 249, 1) 0%,
@@ -349,6 +373,7 @@ export default {
     }
   }
 }
+// 短视频
 .video {
   padding-bottom: 1rem;
   margin-bottom: 0.2rem;
@@ -382,6 +407,7 @@ export default {
     }
   }
 }
+// 底线
 .footer {
   height: 3rem;
   line-height: 3rem;
