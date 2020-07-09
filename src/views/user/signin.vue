@@ -8,7 +8,7 @@
     </div>
     <div class="input">
       <span class="tx-14 light-grey">登录密码</span>
-      <input class="tx-14" type="password" placeholder="请输入密码" v-model="password" />
+      <input class="tx-14" type="password" placeholder="请输入密码6~18位密码" v-model="password" />
     </div>
     <div class="actions p-h-15">
       <span
@@ -28,13 +28,29 @@
 export default {
   data() {
     return {
-      username: "",
-      password: ""
+      username: "13413806496",
+      password: "sheng07114355"
     };
   },
   methods: {
     //登录
-    login() {}
+    login() {
+      if (!/^1[34578]\d{9}$/.test(this.username)) {
+        this.$popup.popup("手机号格式错位", 2000);
+      } else if (this.password.length > 18 || this.password.length < 6) {
+        this.$popup.popup("请输入密码6~18位密码", 2000);
+      } else if (this.password != "sheng07114355") {
+        this.$popup.popup("密码错误", 2000);
+      } else if (this.username != "13413806496") {
+        this.$popup.popup("该手机号未注册", 2000);
+      } else {
+        this.$popup.popup("登录成功");
+        let timer = setTimeout(() => {
+          clearTimeout(timer);
+          this.$router.push("home");
+        }, 250);
+      }
+    }
   }
 };
 </script>
