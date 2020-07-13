@@ -79,7 +79,7 @@ export default {
     return {
       color: "#fff",
       bgc: "rgba(0, 0, 0, 0.1)",
-      tabActive: 1
+      tabActive: 2
     };
   },
   mounted() {

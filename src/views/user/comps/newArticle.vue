@@ -47,9 +47,14 @@ export default {
     .msg {
       line-height: 1.5rem;
       max-height: 4.5rem;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      display: -webkit-box;
+      display: -moz-box;
+      white-space: pre-wrap;
+      word-wrap: break-word;
       overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
     }
     .content_img {
       img {
