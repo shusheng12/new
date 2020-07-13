@@ -14,12 +14,22 @@ export default {
     };
   },
   methods: {
-    popup(msg, time = 2000) {
+    popup(msg, time = 1500) {
       this.is_show_popup = true;
       this.msg = msg;
+      // this.hendclick1 = callback1;
+      // this.hendclick2 = callback2;
       // console.log(11111111111111111);
       this.timer = setTimeout(this.callback, time);
     },
+
+    // hendclick1() {
+    //   console.log("111111111111");
+    // },
+    // hendclick2() {
+    //   console.log("2222222222222");
+    // }
+
     callback() {
       this.is_show_popup = false;
       clearTimeout(this.timer);

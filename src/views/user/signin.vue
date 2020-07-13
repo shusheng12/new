@@ -21,10 +21,11 @@
       >注册</span>
       <span class="tx-14 fr" @click="$router.push({ name: 'forget' })">忘记密码</span>
     </div>
-    <div class="login" @click="login">登录</div>
+    <div class="login" @click="on_olgin">登录</div>
   </div>
 </template>
 <script>
+import { _throttle } from "@/utils/utils";
 export default {
   data() {
     return {
@@ -32,11 +33,20 @@ export default {
       password: "sheng07114355"
     };
   },
+  created() {
+    // 接收节流函数返回的函数
+    this.on_olgin = _throttle(this.login, 300);
+  },
+
   methods: {
     //登录
+    on_olgin() {
+      //this.login();
+    },
     login() {
+      console.log(111111111);
       if (!/^1[34578]\d{9}$/.test(this.username)) {
-        this.$popup.popup("手机号格式错位", 2000);
+        this.$popup.popup("请输入正确的手机号码");
       } else if (this.password.length > 18 || this.password.length < 6) {
         this.$popup.popup("请输入密码6~18位密码", 2000);
       } else if (this.password != "sheng07114355") {

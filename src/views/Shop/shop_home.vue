@@ -1,3 +1,3 @@
 <template>
-  <div></div>
+  <div>shop_home</div>
 </template>

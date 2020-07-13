@@ -21,10 +21,10 @@
       时间管理大师 时间管理大师 时间管理大师
     </div>
     <div class="create_user">
-      <div class="imgUrl">
+      <div class="imgUrl" @click="$router.push('new_user')">
         <img src="@/assets/img/zly1.jpg" alt />
       </div>
-      <div class="create_name">
+      <div class="create_name" @click="$router.push('new_user')">
         <p>赵丽颖</p>
         <span>2020/7/7</span>
       </div>

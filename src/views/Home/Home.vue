@@ -41,7 +41,7 @@
         <i class="iconfont icon-meishi"></i>
         <p>美食</p>
       </div>
-      <div class="icon_item">
+      <div class="icon_item" @click="$router.push({ path: 'shop_home' })">
         <i class="iconfont icon-gouwu"></i>
         <p>购物</p>
       </div>
@@ -161,7 +161,7 @@ export default {
 
 // 页面
 .wamp {
-  background-color: #fafafa;
+  background-color: @fa;
 }
 // 活跃nav
 .nav_ative {

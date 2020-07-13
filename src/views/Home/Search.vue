@@ -44,7 +44,7 @@
 <script>
 import { Dialog } from "vant";
 import { Toast } from "vant";
-import storage from "@/storage/storage"; // 导入storage
+import storage from "@/utils/storage.js"; // 导入storage
 export default {
   components: {
     [Dialog.Component.confirm]: Dialog.confirm

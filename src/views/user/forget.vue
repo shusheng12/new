@@ -9,7 +9,7 @@
     <div class="input">
       <span class="tx-14 light-grey">验证码</span>
       <input class="tx-14" type="text" placeholder="请输入右方内容" v-model="captcha" maxlength="4" />
-      <span class="tx-14 fr light-grey">11111112</span>
+      <span class="tx-14 fr light-grey" @click="updata_captcha_user">{{ captcha_user }}</span>
     </div>
     <div class="input">
       <span class="tx-14 light-grey">短信验证码</span>
@@ -31,21 +31,30 @@
   </div>
 </template>
 <script>
+import { randomString } from "@/utils/utils";
 export default {
   data() {
     return {
       phone: "",
       captcha: "",
+      captcha_user: "",
       smscode: "",
       password: "",
       password2: "",
       SMSdisabled: 0
     };
   },
+  created() {
+    this.captcha_user = randomString(6);
+  },
   methods: {
     //go(-1)
     onClickLeft() {
       this.$router.go(-1);
+    },
+    // 刷新验证码
+    updata_captcha_user() {
+      this.captcha_user = randomString(6);
     },
     //提交
     formSubmit() {},

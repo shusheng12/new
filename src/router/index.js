@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 const signin = () => import("../views/user/signin");
 const forget = () => import("../views/user/forget");
 const signup = () => import("../views/user/signup");
+const new_user = () => import("../views/user/new_user");
 
 //home
 const Home = () => import("@/views/Home/Home");
@@ -14,9 +15,11 @@ const Search = () => import("@/views/Home/Search");
 const newsDetail = () => import("@/views/Home/newsDetail");
 
 // shop
+const shop_home = () => import("@/views/Shop/shop_home");
 
 const routes = [
   { path: "/", redirect: { name: "signin" } },
+  //user
   {
     path: "/signin",
     name: "signin",
@@ -33,6 +36,13 @@ const routes = [
     component: forget
   },
   {
+    path: "/new_user",
+    name: "new_user",
+    component: new_user
+  },
+
+  //home
+  {
     path: "/home",
     name: "Home",
     component: Home
@@ -46,6 +56,13 @@ const routes = [
     path: "/newsDetail",
     name: "newsDetail",
     component: newsDetail
+  },
+
+  //shop
+  {
+    path: "/shop_home",
+    name: "shop_home",
+    component: shop_home
   }
 ];
 
