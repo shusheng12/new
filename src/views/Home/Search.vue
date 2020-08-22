@@ -8,7 +8,7 @@
       </div>
       <div class="hd_body">
         <van-icon name="search" />
-        <input type="text" placeholder="请输入搜索内容" v-model="keyword" />
+        <input type="text" placeholder="请输入搜索内容" @change="onSearch" v-model="keyword" />
       </div>
       <div class="hd_right">
         <van-button round type="info" @click="onSearch">搜索</van-button>
@@ -70,9 +70,11 @@ export default {
     },
     //点击搜索
     onSearch() {
+      console.log("xinxin");
       if (this.keyword == "" || this.history.indexOf(this.keyword) > -1) return;
       this.history.unshift(this.keyword);
       storage.set("history", this.history.join(","));
+      this.keyword = "";
     },
     //清除全部历史记录
     clearall() {

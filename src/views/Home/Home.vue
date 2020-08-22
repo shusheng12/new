@@ -262,6 +262,9 @@ export default {
     height: 100%;
     margin: auto;
     text-align: center;
+    .icon {
+      height: 0;
+    }
     // justify-content: space-around;
     &:nth-of-type(1) i {
       font-size: 3rem;

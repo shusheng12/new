@@ -1,8 +1,18 @@
 <template>
   <div id="app">
     <router-view />
+    <tab-bar v-if="$route.meta.footShow" />
   </div>
 </template>
+
+<script>
+import tabBar from "./components/common/tab_bar/tabBar";
+export default {
+  components: {
+    tabBar
+  }
+};
+</script>
 
 <style lang="less" scoped>
 @import "~@/assets/css/style.less";

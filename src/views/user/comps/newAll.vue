@@ -65,7 +65,7 @@ export default {
           msg: "组件产出组件产出组件产出组件产出组件产出组件产出"
         },
         {
-          id: 1,
+          id: 2,
           type: 2,
           user_name: "张三",
           time: "2020-09-11",
@@ -73,7 +73,7 @@ export default {
           img_url: require("@/assets/img/zly1.jpg")
         },
         {
-          id: 1,
+          id: 3,
           type: 3,
           user_name: "张三",
           time: "2020-09-11",
@@ -81,7 +81,7 @@ export default {
           img_url: require("@/assets/img/zly1.jpg")
         },
         {
-          id: 1,
+          id: 4,
           type: 4,
           user_name: "张三",
           time: "2020-09-11",

@@ -79,7 +79,7 @@ export default {
     return {
       color: "#fff",
       bgc: "rgba(0, 0, 0, 0.1)",
-      tabActive: 2
+      tabActive: 0
     };
   },
   mounted() {
@@ -139,6 +139,7 @@ export default {
     margin: auto;
 
     .van-icon {
+      float: left;
       flex: 1;
       font-size: 1.5rem;
       vertical-align: middle;
