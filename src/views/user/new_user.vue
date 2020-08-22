@@ -29,10 +29,10 @@
       <div class="body">
         <div class="user_name">赵丽颖</div>
         <div class="user_item">
-          <div class="item" v-for="i of 4" :key="i">
+          <div class="item" v-for="i of list_info" :key="i">
             <div>
-              <span>79w</span>
-              <i>粉丝</i>
+              <span>{{ i.num }}</span>
+              <i>{{ i.name }}</i>
             </div>
           </div>
         </div>
@@ -45,16 +45,16 @@
 
     <div class="content">
       <van-tabs animated v-model="tabActive" title-active-color="#278bef" color="#278bef">
-        <van-tab :title="'全部(' + 111 + ')'">
+        <van-tab :title="'全部(' + 10 + ')'">
           <new-all></new-all>
         </van-tab>
-        <van-tab :title="'文章(' + 111 + ')'">
+        <van-tab :title="'文章(' + 12 + ')'">
           <new-article></new-article>
         </van-tab>
-        <van-tab :title="'视频(' + 111 + ')'">
+        <van-tab :title="'视频(' + 18 + ')'">
           <new-video></new-video>
         </van-tab>
-        <van-tab :title="'关注(' + 111 + ')'">
+        <van-tab :title="'关注(' + 22 + ')'">
           <new-attention></new-attention>
         </van-tab>
       </van-tabs>
@@ -79,7 +79,13 @@ export default {
     return {
       color: "#fff",
       bgc: "rgba(0, 0, 0, 0.1)",
-      tabActive: 0
+      tabActive: 0,
+      list_info: [
+        { num: "79w", name: "粉丝" },
+        { num: "37w", name: "获赞" },
+        { num: "35w", name: "头条" },
+        { num: "900", name: "关注" }
+      ]
     };
   },
   mounted() {

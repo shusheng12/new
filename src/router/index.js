@@ -67,7 +67,7 @@ const routes = [
     name: "newsDetail",
     component: newsDetail,
     meta: {
-      footShow: true // true显示，false隐藏
+      footShow: false // true显示，false隐藏
     }
   },
   {

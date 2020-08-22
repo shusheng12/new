@@ -14,11 +14,15 @@
           </div>
         </div>
         <div class="icon">
-          <van-icon name="ellipsis" />
+          <van-icon name="ellipsis" @click="i.is_show = !i.is_show" />
+          <div class="share" v-if="i.is_show">
+            <span>分享</span>
+            <span>举报</span>
+          </div>
         </div>
       </div>
       <div class="item1" v-if="i.type == 1">
-        <div>《乌龙闯关病已到底喜不喜欢霍水仙霍水仙？</div>
+        <div>乌龙闯关病已到底喜不喜欢霍水仙霍水仙？</div>
       </div>
       <div class="item" v-if="i.type == 2">
         <div class="title">《乌龙闯关病已到底喜不喜欢霍水仙霍水仙？</div>
@@ -61,6 +65,7 @@ export default {
           id: 1,
           user_name: "张三",
           type: 1,
+          is_show: false,
           time: "2020-09-11",
           msg: "组件产出组件产出组件产出组件产出组件产出组件产出"
         },
@@ -68,6 +73,7 @@ export default {
           id: 2,
           type: 2,
           user_name: "张三",
+          is_show: false,
           time: "2020-09-11",
           msg: "组件产出组件产出组件产出组件产出组件产出组件产出",
           img_url: require("@/assets/img/zly1.jpg")
@@ -76,6 +82,7 @@ export default {
           id: 3,
           type: 3,
           user_name: "张三",
+          is_show: false,
           time: "2020-09-11",
           msg: "组件产出组件产出组件产出组件产出组件产出组件产出",
           img_url: require("@/assets/img/zly1.jpg")
@@ -84,6 +91,7 @@ export default {
           id: 4,
           type: 4,
           user_name: "张三",
+          is_show: false,
           time: "2020-09-11",
           msg: "组件产出组件产出组件产出组件产出组件产出组件产出",
           img_url: [
@@ -95,6 +103,7 @@ export default {
         {
           id: 5,
           user_name: "张三",
+          is_show: false,
           type: 1,
           time: "2020-09-11",
           msg: "组件产出组件产出组件产出组件产出组件产出组件产出"
@@ -103,6 +112,7 @@ export default {
           id: 6,
           type: 2,
           user_name: "张三",
+          is_show: false,
           time: "2020-09-11",
           msg: "组件产出组件产出组件产出组件产出组件产出组件产出",
           img_url: require("@/assets/img/zly1.jpg")
@@ -111,6 +121,7 @@ export default {
           id: 7,
           type: 3,
           user_name: "张三",
+          is_show: false,
           time: "2020-09-11",
           msg: "组件产出组件产出组件产出组件产出组件产出组件产出",
           img_url: require("@/assets/img/zly1.jpg")
@@ -165,8 +176,22 @@ export default {
     }
   }
   .icon {
+    position: relative;
     margin: 0.5rem 0;
     font-size: 1rem;
+  }
+  .share {
+    position: absolute;
+
+    display: flex;
+    width: 4rem;
+    left: -2.5rem;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    line-height: 22/16rem;
+    padding: 0.2rem 0;
+    text-align: center;
   }
 }
 

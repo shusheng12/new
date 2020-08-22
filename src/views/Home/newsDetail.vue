@@ -29,7 +29,8 @@
         <span>2020/7/7</span>
       </div>
       <div class="guanzu">
-        <span>关注</span>
+        <span @click="ative1 = 1" v-if="ative1 == 0">关注</span>
+        <span @click="ative1 = 0" v-if="ative1 == 1" class="ative1">已关注</span>
       </div>
     </div>
     <div class="detail">
@@ -50,7 +51,7 @@
 
     <div class="user_msg" v-for="list of 5" :key="list">
       <div class="user_left">
-        <div class="img_url">
+        <div class="img_url" @click="$router.push('new_user')">
           <img src="@/assets/img/zly1.jpg" alt />
         </div>
       </div>
@@ -79,8 +80,8 @@
       </div>
       <div class="icon">
         <van-icon name="chat-o" />
-        <van-icon name="star-o" />
-        <van-icon name="good-job-o" />
+        <van-icon name="star-o" :class="{ ative2: ative2 == 1 }" @click="ative2 = !ative2" />
+        <van-icon name="good-job-o" :class="{ ative3: ative3 == 1 }" @click="ative3 = !ative3" />
         <van-icon name="share" @click="show_share = true" />
       </div>
     </div>
@@ -89,9 +90,21 @@
       <div class="share">
         <div class="share_title">分享到</div>
         <div class="share_body">
-          <div class="share_item" v-for="(item, index) in 4" :key="index">
+          <div class="share_item" @click="share_item('微博')">
             <i class="iconfont icon-weibo"></i>
-            <span>qq</span>
+            <span>微博</span>
+          </div>
+          <div class="share_item" @click="share_item('QQ')">
+            <i class="iconfont icon-QQ"></i>
+            <span>QQ</span>
+          </div>
+          <div class="share_item" @click="share_item('微信')">
+            <i class="iconfont icon-weixin"></i>
+            <span>微信</span>
+          </div>
+          <div class="share_item" @click="share_item('百度')">
+            <i class="iconfont icon-baidu"></i>
+            <span>百度</span>
           </div>
         </div>
 
@@ -106,7 +119,12 @@ export default {
     return {
       // 是否显示头部user信息
       is_show_info: false,
-      show_share: false
+      //分享弹出
+      show_share: false,
+      //关注收藏点赞
+      ative1: 0,
+      ative2: 0,
+      ative3: 0
     };
   },
   mounted() {
@@ -129,6 +147,10 @@ export default {
       } else {
         this.is_show_info = false;
       }
+    },
+    share_item(item) {
+      this.$popup.popup("已分享到" + item);
+      this.show_share = false;
     }
   }
 };
@@ -184,7 +206,7 @@ export default {
     }
   }
   .guanzu {
-    width: 3rem;
+    width: 4rem;
     text-align: center;
     span {
       display: inline-block;
@@ -194,6 +216,9 @@ export default {
       .tx-14;
       margin-top: 0.3rem;
       border-radius: 0.2rem;
+    }
+    .ative1 {
+      background-color: #ccc;
     }
   }
 }
@@ -340,5 +365,11 @@ export default {
     text-align: center;
     font-size: 1rem;
   }
+}
+.ative2 {
+  color: rgb(248, 252, 2);
+}
+.ative3 {
+  color: @red;
 }
 </style>

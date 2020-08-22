@@ -39,7 +39,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .is_show_popup {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   color: #fff;
