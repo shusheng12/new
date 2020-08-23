@@ -18,6 +18,18 @@ Vue.use(Vant);
 import popup from "@/components/common/Popup/Popup.js";
 Vue.use(popup);
 
+// 轮播图
+import VueAwesomeSwiper from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
+// import "swiper/swiper-bundle.css";
+Vue.use(VueAwesomeSwiper);
+
+// 视频播放插件
+import VideoPlayer from "vue-video-player";
+require("video.js/dist/video-js.css");
+require("vue-video-player/src/custom-theme.css");
+Vue.use(VideoPlayer);
+
 new Vue({
   router,
   store,

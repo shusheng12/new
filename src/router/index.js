@@ -17,6 +17,10 @@ const newsDetail = () => import("@/views/Home/newsDetail"); //详情页
 // shop
 const shop_home = () => import("@/views/Shop/shop_home"); //购物首页
 
+// video
+const videoHome = () => import("@/views/Video/videoHome"); //视频首页
+const videoIndex = () => import("@/views/Video/comps/videoIndex"); //视频首页
+
 const routes = [
   { path: "/", redirect: { name: "signin" } },
   //user
@@ -87,6 +91,26 @@ const routes = [
     meta: {
       footShow: false // true显示，false隐藏
     }
+  },
+  //video
+  {
+    path: "/videoHome",
+    name: "videoHome",
+    component: videoHome,
+    meta: {
+      footShow: false // true显示，false隐藏
+    },
+    children: [
+      {
+        path: "/",
+        redirect: { name: "videoIndex" }
+      },
+      {
+        path: "/videoIndex",
+        name: "videoIndex",
+        component: videoIndex
+      }
+    ]
   }
 ];
 

@@ -45,7 +45,7 @@
         <i class="iconfont icon-gouwu"></i>
         <p>购物</p>
       </div>
-      <div class="icon_item">
+      <div class="icon_item" @click="$router.push({ path: 'videoHome' })">
         <i class="icon iconfont icon-icon-test"></i>
         <p>视频</p>
       </div>
