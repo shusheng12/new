@@ -17,6 +17,10 @@ const newsDetail = () => import("@/views/Home/newsDetail"); //详情页
 // shop
 const shop_home = () => import("@/views/Shop/shop_home"); //购物首页
 
+// travel_home
+const travel_home = () => import("@/views/travel/travelHome"); //travel首页
+const travelcity = () => import("@/views/travel/city"); //travel首页
+
 // video
 const videoHome = () => import("@/views/Video/videoHome"); //视频首页
 const videoIndex = () => import("@/views/Video/comps/videoIndex"); //视频首页
@@ -111,6 +115,23 @@ const routes = [
         component: videoIndex
       }
     ]
+  },
+  //travel
+  {
+    path: "/travel_home",
+    name: "travel_home",
+    component: travel_home,
+    meta: {
+      footShow: false // true显示，false隐藏
+    }
+  },
+  {
+    path: "/travelcity",
+    name: "travelcity",
+    component: travelcity,
+    meta: {
+      footShow: false // true显示，false隐藏
+    }
   }
 ];
 

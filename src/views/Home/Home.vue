@@ -41,15 +41,15 @@
         <i class="iconfont icon-meishi"></i>
         <p>美食</p>
       </div>
-      <div class="icon_item" @click="$router.push({ path: 'shop_home' })">
+      <div class="icon_item" @click="$router.push({ path: '/shop_home' })">
         <i class="iconfont icon-gouwu"></i>
         <p>购物</p>
       </div>
-      <div class="icon_item" @click="$router.push({ path: 'videoHome' })">
+      <div class="icon_item" @click="$router.push({ path: '/videoHome' })">
         <i class="icon iconfont icon-icon-test"></i>
         <p>视频</p>
       </div>
-      <div class="icon_item">
+      <div class="icon_item" @click="$router.push({ path: '/travel_home' })">
         <i class="icon iconfont icon-lvyou"></i>
         <p>旅游</p>
       </div>
